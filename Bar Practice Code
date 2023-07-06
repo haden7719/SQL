@@ -1,0 +1,26 @@
+--Create a Store Database
+create table 
+Bar
+(id integer primary key, name text, price integer, quantity integer, rating integer);
+
+insert into Bar 
+values
+(1, 'beer', 4, 100,2),
+(2, 'whiskey', 5, 40,3),
+(3, 'vodka', 3, 100, 5),
+(4, 'magaritas', 5, 60, 1),
+(5, 'burgers', 10, 100, 6),
+(6, 'fries', 3, 200, 7),
+(7, 'tacos', 11, 100, 8),
+(8, 'ice cream', 5, 100,9),
+(9, 'flan', 6, 50, 10),
+(10, 'chips_queso', 7, 200, 11),
+(11, 'cookies', 2, 200, 12),
+(12, 'graphic_tees', 20, 100, 13),
+(13, 'coosies', 8, 100, 14),
+(14, 'limes', 1, 200, 15),
+(15, 'coolers', 200, 60, 16);
+--See all based on price
+Select * from Bar order by price;
+--see all the quantity of products
+select sum(quantity) from bar;
