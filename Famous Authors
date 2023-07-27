@@ -1,0 +1,35 @@
+/* Here is a Short Demontration of using the Join function*/
+
+Create table Authors(
+id integer primary key,
+name text);
+
+Create table Authors_books(
+id integer primary key,
+book_name text,
+authors_name text);
+
+insert into Authors (id, name)
+Values
+(1, 'Stephen King'),
+(2, 'Ernest Hemingway'),
+(3, 'Mark Twain'),
+(4, 'Frank Herbert');
+
+insert into Authors_books 
+(id, book_name, authors_name)
+Values
+(1, 'IT', 'Stephen King'),
+(2, 'Pet Cemetary', 'Stephen King'),
+(3, 'Dune', 'Frank Herbert'),
+(4, 'Dune Messiah', 'Frank Herbert'),
+(5, 'Old Man and the sea', 'Ernest Hemingway'),
+(6, 'Fro Whom the Bell Tolls', 'Ernest Hemingway'),
+(7, 'The Adventure of HuckleberryFinn', 'Mark Twain'),
+(8, 'The adventure of Tom Sawyer', 'Mark Twain');
+
+Select a.name, b.book_name
+From authors a
+join authors_books b
+on a.name=b.authors_name;
+
