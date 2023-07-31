@@ -1,23 +1,35 @@
-/* Here is a Short Demontration of using the Join function*/
-
+/* Create table about the people and what they do here */
 Create table Authors(
-id integer primary key,
-name text);
+ID integer primary key,
+Name text);
 
-Create table Authors_books(
-id integer primary key,
-book_name text,
-authors_name text);
+Create table Authors_Books(
+ID integer primary key,
+Book_Name text,
+Authors_Name text);
 
-insert into Authors (id, name)
+insert into Authors (ID, Name)
 Values
 (1, 'Stephen King'),
 (2, 'Ernest Hemingway'),
 (3, 'Mark Twain'),
-(4, 'Frank Herbert');
+(4, 'Frank Herbert'),
+(5, 'George Orwell'),
+(6, 'Jane Austen'),
+(7, 'JK Rowling'),
+(8, 'Leo Tolstoy'),
+(9, 'Agatha Christie'),
+(10, 'Charles Dickens'),
+(11, 'Franz Kafka'),
+(12, 'John Steinbeck'),
+(13, 'F. Scott Fitzgerald'),
+(14, 'Herman Melville'),
+(15, 'James Joyce');
 
-insert into Authors_books 
-(id, book_name, authors_name)
+select Name from Authors;
+
+insert into Authors_Books 
+(ID, Book_Name, Authors_Name)
 Values
 (1, 'IT', 'Stephen King'),
 (2, 'Pet Cemetary', 'Stephen King'),
@@ -26,10 +38,18 @@ Values
 (5, 'Old Man and the sea', 'Ernest Hemingway'),
 (6, 'Fro Whom the Bell Tolls', 'Ernest Hemingway'),
 (7, 'The Adventure of HuckleberryFinn', 'Mark Twain'),
-(8, 'The adventure of Tom Sawyer', 'Mark Twain');
+(8, 'The Adventure of Tom Sawyer', 'Mark Twain'),
+(9, 'The Great Gatby', 'F. Scott Fitzgerald'),
+(10, 'The Moon is Down', 'John Steinbeck'),
+(11, 'Ulysses', 'James Joyce'),
+(12, 'A Tale of Two Cities', 'Charles Dickens'),
+(13, 'Harry Potter and The Sorcerers stone', 'JK Rowling'),
+(14, '1984', 'George Orwell'),
+(15, 'Animal Farm', 'George Orwell');
 
-Select a.name, b.book_name
+select a.Name, b.Book_Name
 From authors a
-join authors_books b
-on a.name=b.authors_name;
+Left Outer join Authors_Books b
+on a.Name=b.Authors_Name
+Order By a.Name Asc;
 
