@@ -1,0 +1,49 @@
+Select Distinct location, count(orderID)
+From BIT_DB.JanSales
+where location like '%NY%'
+and length(orderid) = 6
+and orderid <> 'Order ID'
+Group by location
+Having Count(orderID)>2;
+
+Select sum(quantity*price)/count(cust.acctnum)
+From BIT_DB.FebSales Feb
+
+Left JOIN BIT_DB.customers Cust
+ON FEB.orderid=cust.order_id
+
+WHERE length(orderid) = 6
+AND orderid <> 'OrderID';
+
+SELECT AVG(quantity*price)
+From BIT_DB.FebSales Feb
+
+Left JOIN BIT_DB.customers cust
+on FEB.orderid=cust.order_id
+
+Where length(orderid) = 6
+and orderid <> 'Order ID';
+
+Select sum(quantity)/count(cust.acctnum)
+From BIT_DB.FebSales Feb
+
+Left join BIT_DB.customers cust
+on FEB.orderid=cust.order_id
+
+Where length(orderid) = 6
+And orderid <> 'Order ID';
+
+SELECT product,
+sum(quantity*price)
+FROM BIT_DB.JanSales
+Group by product
+Order by sum(quantity*price) desc
+limit 1;
+
+SELECT sum(quantity),
+price,
+Sum(quantity)*price as revenue,
+sum(quantity*price) as revenue2,
+product
+from BIT_DB.JanSales
+Group by product;
